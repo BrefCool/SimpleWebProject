@@ -27,7 +27,7 @@
     </div>
 
     <h2>To Do</h2>
-    <div v-for="task in tasks" style="margin-bottom: 10px;">
+    <div v-for="task in tasks" style="margin-bottom: 5px;">
       <div v-if="task.done===false" class="input-group">
         <span class="input-group-btn">
           <button class="btn btn-info" type="button" v-on:click="updateTask(task, true)">
@@ -39,13 +39,13 @@
 
         <span class="input-group-btn">
           <button class="btn btn-info" type="button" v-on:click="updateTask(task)"><i class="glyphicon glyphicon-floppy-disk"></i></button>
-          <button class="btn btn-danger" type="button" v-on:click="updateTask(task)"><i class="fa fa-trash-o"></i></button>
+          <button class="btn btn-danger" type="button" v-on:click="deleteTask(task)"><i class="fa fa-trash-o"></i></button>
         </span>
       </div>
     </div>
 
     <h2>Completed</h2>
-    <div v-for="task in tasks" style="margin-bottom: 10px;">
+    <div v-for="task in tasks" style="margin-bottom: 5px;">
       <div v-if="task.done===true" class="input-group">
             
           <input type="text" class="form-control" v-model="task.name"  disabled>

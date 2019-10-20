@@ -8,10 +8,10 @@
         },
 
         created: function() {
-            // load all the tasks
-            // this.$http.get('/tasks').then(function(res) {
-            //     this.tasks = res.data.iterms ? res.data.iterms : [];
-            // });
+            //load all the tasks
+            this.$http.get('/tasks/list').then(function(res) {
+                this.tasks = res.data ? res.data : []
+            });
         },
 
         methods: {
@@ -23,30 +23,29 @@
 
                 this.newTask.done = false;
 
-                // send http post req
-                // this.$http.post('url', this.newTask).success(function(res) {
-                //     this.newTask.id = res.created;
-                //     this.tasks.push(this.newTask);
+                //send http post req
+                this.$http.post('/tasks/add', this.newTask).success(function(res) {
+                    //this.newTask.id = res.created;
+                    this.$http.get('/tasks/list').then(function(res) {
+                        this.tasks = res.data ? res.data : []
+                    })
+                }).error(function(err) {
+                    console.log(err);
+                });
 
-                //     this.newTask = {};
-                // }).error(function(err) {
-                //     console.log(err);
-                // });
-
-                this.newTask.id = '0';
-                this.tasks.push(this.newTask);
                 this.newTask = {};
+
             },
 
-            deleteTask: function(index) {
+            deleteTask: function(task) {
                 // send http delete req to delete task
-                // this.$http.delete('/task/'+index).success(function(res) {
-                //     this.$http.get('/tasks').then(function(res) {
-                //          this.tasks = res.data.iterms ? res.data.iterms : [];
-                //      })
-                // }).error(function(err) {
-                //     console.log(err);
-                // });
+                this.$http.delete('/tasks/'+task.id).success(function(res) {
+                    this.$http.get('/tasks/list').then(function(res) {
+                         this.tasks = res.data ? res.data : [];
+                     })
+                }).error(function(err) {
+                    console.log(err);
+                });
             },
 
             updateTask: function(task, completed) {
@@ -55,13 +54,13 @@
                 }
 
                 // send http put req to update task info
-                // this.$http.put('/task', task).success(function(res) {
-                //     this.$http.get('/tasks').then(function(res) {
-                //         this.tasks = res.data.iterms ? res.data.iterms : [];
-                //     });
-                // }).error(function(err) {
-                //     console.log(err)
-                // });
+                this.$http.put('/tasks/edit', task).success(function(res) {
+                    this.$http.get('/tasks/list').then(function(res) {
+                        this.tasks = res.data ? res.data : [];
+                    });
+                }).error(function(err) {
+                    console.log(err)
+                });
             }
         }
     });
