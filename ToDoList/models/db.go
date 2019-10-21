@@ -22,6 +22,7 @@ func init() {
 		Username: user,
 		Password: pass,
 	}
+	// when init, try create a session
 	s, err := mgo.DialWithInfo(dialInfo)
 	//s, err := mgo.Dial(host)
 	if err != nil {
@@ -30,6 +31,7 @@ func init() {
 	globalS = s
 }
 
+// first connect to the DB, find the target collection
 func connect(db, collection string) (*mgo.Session, *mgo.Collection) {
 	s := globalS.Copy()
 	c := s.DB(db).C(collection)

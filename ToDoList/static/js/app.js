@@ -25,7 +25,6 @@
 
                 //send http post req
                 this.$http.post('/tasks/add', this.newTask).success(function(res) {
-                    //this.newTask.id = res.created;
                     this.$http.get('/tasks/list').then(function(res) {
                         this.tasks = res.data ? res.data : []
                     })

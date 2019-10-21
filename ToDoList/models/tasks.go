@@ -14,25 +14,30 @@ type Task struct {
 }
 
 // db & collection info
+// extracting it from AppConfig
 var (
 	db = beego.AppConfig.String("db")
 	collection = beego.AppConfig.String("collection")
 )
 
+// Insert a new Task to DB
 func InsertTask(task Task) error {
 	return Insert(db, collection, task)
 } 
 
+// Query tasks info
 func FindAllTasks() ([]Task, error) {
 	var result []Task
 	err := FindAll(db, collection, nil, nil, &result)
 	return result, err
 }
 
+// Update Task info
 func UpdateTask(task Task) error {
 	return Update(db, collection, bson.M{"_id": task.Id}, task)
 }
 
+// del a task
 func RemoveTask(id string) error {
 	return Remove(db, collection, bson.M{"_id": bson.ObjectIdHex(id)})
 }

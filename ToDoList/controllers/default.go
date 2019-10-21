@@ -13,29 +13,14 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-// type H map[string]interface{}
-
 type MainController struct {
 	beego.Controller
 }
 
-// func (c *MainController) URLMapping() {
-// 	c.Mapping("Get", c.GetTasks)
-// 	c.Mapping("Post", c.AddTask)
-// 	c.Mapping("Put", c.EditTask)
-// 	c.Mapping("Delete", c.DeleteTask)
-// }
-
+// parse the task struct from request body
 func (c *MainController) bind() (ta models.Task) {
 	json.NewDecoder(c.Ctx.Request.Body).Decode(&ta)
 	return
-}
-
-func responseWithJson(w http.ResponseWriter, code int, payload interface{}) {
-	response, _ := json.Marshal(payload)
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	w.Write(response)
 }
 
 func (c *MainController) Home() {

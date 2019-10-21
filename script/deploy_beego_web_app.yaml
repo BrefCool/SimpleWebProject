@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp
+  name: webapp-service
 spec:
   type: NodePort
   ports:
