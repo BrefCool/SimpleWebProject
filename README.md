@@ -5,6 +5,15 @@ This is a simple web project using vue.js + beego + MongoDB. Also, this web app 
 This website can be used as a To Do List. User can do basic CRUD operations including adding tasks to the list, marking the task as completed, delete a existed task and query all the tasks' informations.  
 <img src="images/todolist_web_page.png" width="50%" height="50%">  
 
+## File Structure
+```
+/SimpleWebProject  
+    +-- MongoDB (includes scripts needed to deploy MongoDB over Minikube)  
+    +-- ToDoList (includes all the codes of beego web app)  
+    +-- images (includes demo video)  
+    +-- script (includes scripts needed to deploy beego web app over Minikube)  
+```
+
 ## Instructions:
 ### Step 0. Prerequisites  
 In order to use MiniKube, pls ensure the following dependencies are already fulfilled:  
@@ -13,7 +22,7 @@ In order to use MiniKube, pls ensure the following dependencies are already fulf
 3. The MiniKube has been installed.  
 
 ### Step 1. deploy MongoDB on MiniKube
-Here I follows a instructions from the MongoDB official sites to deploy MongoDB Replica Set over MiniKube: https://github.com/pkdone/minikube-mongodb-demo    
+Here I follow instructions from the MongoDB official sites to deploy MongoDB Replica Set over MiniKube: https://github.com/pkdone/minikube-mongodb-demo    
 
 1. clone my github Repo  
 ```
