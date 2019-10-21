@@ -110,4 +110,4 @@ You can directly visit the "minikube ip:31317" to get the website.
 ## Demo
 <img src="images/demo.gif">  
 
-To see the full video, pls visit `/images/demo.mp4`  
+To see the full video, pls visit `/images/demo.mp4` or see the video on YouTube: https://youtu.be/hLYLTeOr2sw  
