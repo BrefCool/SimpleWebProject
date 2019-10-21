@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"myRepo/SimpleWebProject/ToDoList/controllers"
+	"ToDoList/controllers"
 	"github.com/astaxie/beego"
 )
 

@@ -4,26 +4,26 @@ import (
 	"log"
 
 	"gopkg.in/mgo.v2"
+
+	"github.com/astaxie/beego"
 )
 
-const (
-	host   = "127.0.0.1:27017"
-	source = "admin"
-	user   = "user"
-	pass   = "123456"
+var (
+	host = beego.AppConfig.String("host")
+	user = beego.AppConfig.String("user")
+	pass = beego.AppConfig.String("pass")
 )
 
 var globalS *mgo.Session
 
 func init() {
-	// dialInfo := &mgo.DialInfo{
-	// 	Addrs:    []string{host},
-	// 	Source:   source,
-	// 	Username: user,
-	// 	Password: pass,
-	// }
-	//s, err := mgo.DialWithInfo(dialInfo)
-	s, err := mgo.Dial(host)
+	dialInfo := &mgo.DialInfo{
+		Addrs:    []string{host},
+		Username: user,
+		Password: pass,
+	}
+	s, err := mgo.DialWithInfo(dialInfo)
+	//s, err := mgo.Dial(host)
 	if err != nil {
 		log.Fatalln("create session error ", err)
 	}

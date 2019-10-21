@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "myRepo/SimpleWebProject/ToDoList/routers"
+	_ "ToDoList/routers"
 	"github.com/astaxie/beego"
 )
 

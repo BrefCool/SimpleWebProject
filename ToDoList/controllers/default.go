@@ -6,7 +6,7 @@ import (
 
 	"net/http"
 
-	"myRepo/SimpleWebProject/ToDoList/models"
+	"ToDoList/models"
 	
 	"github.com/astaxie/beego"
 

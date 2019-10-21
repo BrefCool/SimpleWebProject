@@ -1,6 +1,10 @@
 package models
 
-import "gopkg.in/mgo.v2/bson"
+import ( 
+	"gopkg.in/mgo.v2/bson"
+
+	"github.com/astaxie/beego"
+)
 
 // task model
 type Task struct {
@@ -10,9 +14,9 @@ type Task struct {
 }
 
 // db & collection info
-const (
-	db = "TaskDB"
-	collection = "Tasks"
+var (
+	db = beego.AppConfig.String("db")
+	collection = beego.AppConfig.String("collection")
 )
 
 func InsertTask(task Task) error {
