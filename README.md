@@ -1,5 +1,5 @@
 # SimpleWebProject: The To Do List  
-This is a simple web project using vue.js + beego + MongoDB. Also, this web app is packaged as docker image and can by deployed on MiniKube.  
+This is a simple web project using vue.js + beego + MongoDB. Also, this web app is packaged as docker image and can by deployed on MiniKube :)  
 
 ## Web App Preview:
 This website can be used as a To Do List. User can do basic CRUD operations including adding tasks to the list, marking the task as completed, delete a existed task and query all the tasks' informations.  
